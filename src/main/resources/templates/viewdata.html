@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>viewdata</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+            <section class="mt-5 bg-dark p-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4 bg-danger p-3">
+                            <div class="form-roll">
+                                <span>check by roll</span>
+                                <form class="p-4 bg-white" action="#" th:action="@{/getrollobject}" th:object="${student}" method="get">
+                                    <div>
+                                        <span>Search by roll</span>
+                                        <input type="text" th:field="*{roll}" class="w-100" placeholder="enter roll">
+                                    </div>
+                                    <div class="my-2">
+                                        <input class="btn bg-success w-100" type="submit" value="Submit">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-4 bg-warning p-3">
+                            <div class="form-name">
+                                <span>check by name</span>
+                                <form class="" action="#" th:action="@{/getnameobject}" th:method="get" th:object="${student}" >
+                                    <div class="mb-3">
+                                        <input type="number" name="name" th:field="*{name}" placeholder="enter the any name">
+                                    </div>
+                                    <div class="">
+                                        <input type="submit" name="button" value="submit" class="btn w-100 text-white bg-success">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-4 bg-info p-3">
+                            <div class="form-classname" action="#" method="post">
+                                <span>check by classname</span>
+                                <form>
+                                    <div class="mb-3">
+                                        <input type="text" name="classname" placeholder="enter any class name">
+                                    </div>
+                                    <div class="">
+                                        <input type="submit" name="button" value="submit" class="btn w-100 text-white bg-success">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="container-fluid">
+                    <div class="row-lg">
+                        <div class="col-12">
+                            <div class="data-management">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr class="bg-dark text-white">
+                                            <td><span>Roll</span></td>
+                                            <td><span>Name</span></td>
+                                            <td><span>Address</span></td>
+                                            <td><span>ClassName</span></td>
+                                            <td><span>Age</span></td>
+                                            <td><span>Gender</span></td>
+                                            <td><span>Mobile</span></td>
+                                            <td><span>Gmail</span></td>
+                                            <td><span>FatherName</span></td>
+                                            <td><span>Action</span></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="stdObject:${student}">
+                                            <td th:text="${stdObject.roll}"></td>
+                                            <td th:text="${stdObject.name}"></td>
+                                            <td th:text="${stdObject.address}"></td>
+                                            <td th:text="${stdObject.classname}"></td>
+                                            <td th:text="${stdObject.age}"></td>
+                                            <td th:text="${stdObject.gender}"></td>
+                                            <td th:text="${stdObject.mobile}"></td>
+                                            <td th:text="${stdObject.email}"></td>
+                                            <td th:text="${stdObject.fatherName}"></td>
+                                            <td>
+                                                <a href="@{/update/{/roll}(roll=${student.roll})}" class="btn bg-info text-white">Update</a>
+                                                <a href="@{/delete/{/roll}(roll=${student.roll})}" class="btn bg-danger text-white">Delete</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+</body>
+</html>

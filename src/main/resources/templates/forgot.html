@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>forgotpasscode</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+  <style>
+            body{
+                  background-image:linear-gradient(90deg, red, yellow);
+            }
+            h3{
+                 line-height:0px;
+                 color:#900C3F ;
+            }
+            p{
+                color:white ;
+            }
+            .bottom{
+                border-bottom:4px solid white;
+                border-top-left-radius:50px;
+                border-top-right-radius:50px;
+            }
+            input{
+                  width:300px;
+                  height:35px;
+                  border-radius:50px;
+                  border-decoration:none;
+            }
+            .radius{
+                     border-bottom-left-radius:50px;
+                     border-bottom-right-radius:50px;
+            }
+        </style>
+</head>
+<body>
+<div class="row mt-5 text-center justify-content-center">
+  <div class="col-4">
+    <div class="">
+      <h3><b>P.K. TEJASH</b></h3>
+      <p><b>COLLEGE MANAGEMENT SYSTEM</b></p>
+    </div>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-4 px-3 py-4 bottom" style="background-color:#040001;">
+    <div class="image text-center">
+      <img class="img-circle" src="logo.png">
+      <p>PRASHANT KUMAR BIND MAHAVIDHYALAY BARAUT HANDIA PRAYGRAJ</p>
+    </div>
+
+  </div>
+</div>
+<div class="row justify-content-center mb-5">
+  <div class="col-4 py-4 text-center radius" style="background-color:#11EBD1 ;">
+    <h5 class="text-dark"> <strong>Forgot Passcode</strong></h5>
+    <div>
+      <form class="form" action="#" th:action="@{/checkemail}" th:object="${email}" method="post">
+        <div class="input my-3">
+          <input class="px-3" type="email" th:field="*{email}" placeholder="Enter email">
+        </div>
+        <div class="input my-3">
+          <input type="submit" class="btn bg-dark text-center button text-white" value="Submit">
+        </div>
+      </form>
+      <a href="#" th:href="@{/}">Admin Login</a>
+      <h6 class="mt-2"><span>powered By P.K.Tejash.in</span></h6>
+    </div>
+  </div>
+</div>
+</body>
+</html>
